@@ -32,7 +32,7 @@
 	
 	<script>
 		// yogyakarta
-		var map = L.map('map').setView([-7.273048688211342, 112.73338983301201], 13);
+		var map = L.map('map').setView([-7.273048688211342, 112.73338983301201], 10);
 
 		// basemaps
 		var openStreetMap = L.tileLayer.provider('OpenStreetMap.Mapnik');
@@ -81,7 +81,7 @@
 					});
 				},
 			});
-			$.getJSON("https://script.google.com/macros/s/AKfycbxs4xxcrUv22EvKxrW9oAg5XT7SPRuUNCg0lls6KV4Xglq6d0yGkoRafL1qgv0IRBTxmw/exec", function (data) {
+			$.getJSON("https://script.google.com/macros/s/AKfycbyj2z2aM9QeE7i8-lFOrqfCGCLUIghnYgVdvdUo_NZXMjQ5ERx34aG57iwfQUChzv9wnQ/exec", function (data) {
 				point.addData(data);
 				map.addLayer(point);
 				map.fitBounds(point.getBounds());
