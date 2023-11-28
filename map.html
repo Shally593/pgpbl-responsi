@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 	<link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+	
 	<style>
 		html,
 		body,
@@ -21,19 +22,22 @@
 
 <body>
 	<div id="map"></div>
+	
 	<div id="basemap-control" class="leaflet-top leaflet-right"></div>
 	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
 		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+	<script src="https://unpkg.com/leaflet-providers@1.12.0/leaflet-providers.js"></script>
+	<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+	
 	<script>
 		// yogyakarta
-		var map = L.map('map').setView([-7.797068, 110.370529], 12);
+		var map = L.map('map').setView([-7.273048688211342, 112.73338983301201], 13);
 
 		// basemaps
 		var openStreetMap = L.tileLayer.provider('OpenStreetMap.Mapnik');
 		var satelliteMap = L.tileLayer.provider('Esri.WorldImagery');
 		var darkMap = L.tileLayer.provider('CartoDB.DarkMatter');
-
 		// Add basemaps to layers control
 		var basemaps = {
 			"OpenStreetMap": openStreetMap,
@@ -51,7 +55,7 @@
 		L.control.locate().addTo(map);
 
 		// Export Button
-		var showExport = '<button onclick="loadlayer()" title="Refresh map" class="">Reload</button>';
+		var showExport = '<button onclick="loadlayer()" title="Refresh map" class="">reload</button>';
 
 		var showExportButton = new L.Control({ position: "topright" });
 		showExportButton.onAdd = function (map) {
@@ -65,7 +69,11 @@
 			var point = L.geoJson(null, {
 				onEachFeature: function (feature, layer) {
 					var popupContent = "<h4>" + feature.properties.nama + "</h4>" +
-						"<p>" + feature.properties.deskripsi + "</p>";
+						"<p>" + feature.properties.jenis + "</p>" +
+						"<p>" + feature.properties.alamat + "</p>" +
+						"<p>" + feature.properties.jadwal_operasional + "</p>" +
+						"<p>" + feature.properties.kontak + "</p>" +
+
 					layer.on({
 						click: function (e) {
 							point.bindPopup(popupContent);
@@ -80,7 +88,13 @@
 			});
 		}
 
+		
+
 		loadlayer();
+
+		
+
 	</script>
 </body>
+
 </html>
