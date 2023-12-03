@@ -1,99 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ini Peta Interaktif</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css"
+    />
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ini Peta Interaktif</title>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-	<link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
-	
-	<style>
-		html,
-		body,
-		#map {
-			height: 100%;
-			width: 100%;
-			margin: 0;
-		}
-	</style>
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/fontawesome.min.css"
+      integrity="sha512-P9vJUXK+LyvAzj8otTOKzdfF1F3UYVl13+F8Fof8/2QNb8Twd6Vb+VD52I7+87tex9UXxnzPgWA3rH96RExA7A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-<body>
-	<div id="map"></div>
-	
-	<div id="basemap-control" class="leaflet-top leaflet-right"></div>
-	<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
-	<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-	<script src="https://unpkg.com/leaflet-providers@1.12.0/leaflet-providers.js"></script>
-	<script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
-	
-	<script>
-		// yogyakarta
-		var map = L.map('map').setView([-7.273048688211342, 112.73338983301201], 10);
+    <style>
+      html,
+      body,
+      #map {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+      }
+    </style>
+  </head>
 
-		// basemaps
-		var openStreetMap = L.tileLayer.provider('OpenStreetMap.Mapnik');
-		var satelliteMap = L.tileLayer.provider('Esri.WorldImagery');
-		var darkMap = L.tileLayer.provider('CartoDB.DarkMatter');
-		// Add basemaps to layers control
-		var basemaps = {
-			"OpenStreetMap": openStreetMap,
-			"Satellite": satelliteMap,
-			"Dark": darkMap
-		};
+  <body>
+    <div id="map"></div>
 
-		// Add default basemap to the map
-		openStreetMap.addTo(map);
+    <div id="basemap-control" class="leaflet-top leaflet-right"></div>
 
-		// Control layers
-		L.control.layers(basemaps, null, { position: 'topright' }).addTo(map);
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-providers@1.12.0/leaflet-providers.js"></script>
+    <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
 
-		// Locate control
-		L.control.locate().addTo(map);
+    <!-- Search JavaScript Library -->
+    <script src="https://calvinmetcalf.github.io/leaflet-ajax/dist/leaflet.ajax.js"></script>
+    <script src="https://calvinmetcalf.github.io/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
 
-		// Export Button
-		var showExport = '<button onclick="loadlayer()" title="Refresh map" class="">reload</button>';
 
-		var showExportButton = new L.Control({ position: "topright" });
-		showExportButton.onAdd = function (map) {
-			this._div = L.DomUtil.create('div');
-			this._div.innerHTML = showExport
-			return this._div;
-		};
-		showExportButton.addTo(map);
+    <script>
+      // yogyakarta
+      var map = L.map("map").setView(
+        [-7.273048688211342, 112.73338983301201],
+        12
+      );
 
-		function loadlayer() {
-			var point = L.geoJson(null, {
-				onEachFeature: function (feature, layer) {
-					var popupContent = "<h4>" + feature.properties.nama + "</h4>" +
-						"<p>" + feature.properties.jenis + "</p>" +
-						"<p>" + feature.properties.alamat + "</p>" +
-						"<p>" + feature.properties.kontak + "</p>";
+      // basemaps
+      var openStreetMap = L.tileLayer.provider("OpenStreetMap.Mapnik");
+      var satelliteMap = L.tileLayer.provider("Esri.WorldImagery");
+      var darkMap = L.tileLayer.provider("CartoDB.DarkMatter");
+      // Add basemaps to layers control
+      var basemaps = {
+        OpenStreetMap: openStreetMap,
+        Satellite: satelliteMap,
+        Dark: darkMap,
+      };
 
-					layer.on({
-						click: function (e) {
-							point.bindPopup(popupContent);
-						},
-					});
-				},
-			});
-			$.getJSON("https://script.google.com/macros/s/AKfycbyj2z2aM9QeE7i8-lFOrqfCGCLUIghnYgVdvdUo_NZXMjQ5ERx34aG57iwfQUChzv9wnQ/exec", function (data) {
-				point.addData(data);
-				map.addLayer(point);
-				map.fitBounds(point.getBounds());
-			});
-		}
+      // Add default basemap to the map
+      openStreetMap.addTo(map);
 
-		
+      // Control layers
+      L.control.layers(basemaps, null, { position: "topright" }).addTo(map);
 
-		loadlayer();
+      // Locate control
+      L.control.locate().addTo(map);
 
-		
+      // Export Button
+      var showExport =
+        '<button onclick="loadlayer()" title="Refresh map" class="">Reload Map</button>';
 
-	</script>
-</body>
+      var showExportButton = new L.Control({ position: "topright" });
+      showExportButton.onAdd = function (map) {
+        this._div = L.DomUtil.create("div");
+        this._div.innerHTML = showExport;
+        return this._div;
+      };
+      showExportButton.addTo(map);
 
+      function loadlayer() {
+        var point = L.geoJson(null, {
+          onEachFeature: function (feature, layer) {
+            var popupContent =
+              "<h4>" +
+              feature.properties.nama +
+              "</h4>" +
+              "<p>" +
+              feature.properties.jenis +
+              "</p>" +
+              "<p>" +
+              feature.properties.alamat +
+              "</p>" +
+              "<p>" +
+              feature.properties.kontak +
+              "</p>";
+
+            layer.on({
+              click: function (e) {
+                point.bindPopup(popupContent);
+              },
+            });
+          },
+        });
+        $.getJSON(
+          "https://script.google.com/macros/s/AKfycbyj2z2aM9QeE7i8-lFOrqfCGCLUIghnYgVdvdUo_NZXMjQ5ERx34aG57iwfQUChzv9wnQ/exec",
+          function (data) {
+            point.addData(data);
+            map.addLayer(point);
+            map.fitBounds(point.getBounds());
+          }
+        );
+        //buat style area admin desa dan munculin desanya
+        var areaStyle = {
+          color: "#008B8B",
+          weight: 3,
+          fillOpacity: 0.5,
+          opacity: 0.45,
+        };
+
+        var areaSBY = new L.GeoJSON.AJAX(["Batas_Admin_AOI/Surabaya2.geojson"], {
+          onEachFeature: function (feature, layer) {
+            var popupText = "Kecamatan: " + feature.properties.NAMOBJ;
+            if (feature.properties.WADMKK) {
+              popupText += "<br/>Kabupaten: " + feature.properties.WADMKK;
+            }
+            if (feature.properties.jumlahALL) {
+              popupText +=
+                "<a href='halamanalufe.php'></a>"; //+ feature.properties.jumlahALL;
+            }
+            layer.bindPopup(popupText);
+          },
+          style: areaStyle,
+        }).addTo(map);
+      }
+
+      loadlayer();
+    </script>
+  </body>
 </html>
