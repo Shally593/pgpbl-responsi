@@ -9,7 +9,7 @@ Selain mendapatkan informasi mengenai sebaran lokasi pengelolaan sampah di Surab
 2.	Pemetaan Interaktif 
 Aplikasi dilengkapi dengan fitur spasial yang memudahkan pengguna dalam menggunakannya. Pengguna dapat menemukan lokasi - lokasi pengelolaan sampah dalam Tab - List Data. Pengguna dapat menggunakan fitur Add Data untuk menambahkan data mengenai lokasi bersangkutan. Selanjutnya pengguna dapat menggunakan fitur navigasi dalam list data untuk    mengetahui lebih lengkapi rute menuju lokasi tersebut melalui Google Maps. Bagi pengguna yang memiliki preferensi basemap dari tampilan map yang digunakan, terdapat fitur 'Change Base Map' yang dapat diatur saat melihat sebaran lokasi bersangkutan. 
 
-### Komponen Pembangun Aplikasi
+## Komponen Pembangun Aplikasi
 1)	React Native 
 React Native merupakan framework yang digunakan dalam membangun cross mobile app, android dan IOS. React Native dibangun dengan library javascript bernama React untuk interface program, dengan bahasa pemorgraman Javascript.
 2)	HTML 
@@ -25,11 +25,11 @@ Font Awesome 5 yang merupakan ikon dan toolkit font vektor library yang digunaka
 7)	Github Repository
 GitHub Repository digunakan dalam menyimpan sumber kode agar dapat dilacak dan dikelola secara efisien. 
 
-#### Sumber Data
+## Sumber Data
 1)	Data Batas Administrasi Surabaya dari RBI 1 : 25.000 
 Data diakses melalui Inageoportal : https://tanahair.indonesia.go.id/
 2)	Data tabular lokasi pengelolaan sampah di Kota Surabaya dan sekitarnya berupa file *.xlsx, yang disimpan dalam spreadsheet. 
 
-##### Aplikasi 
+## Aplikasi 
 
 
