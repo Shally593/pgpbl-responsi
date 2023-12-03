@@ -31,6 +31,7 @@ Data diakses melalui Inageoportal : https://tanahair.indonesia.go.id/
 2)	Data tabular lokasi pengelolaan sampah di Kota Surabaya dan sekitarnya berupa file *.xlsx, yang disimpan dalam spreadsheet. 
 
 ## Aplikasi 
-![Picture1](https://github.com/Shally593/pgpbl-responsi/assets/142763000/8ac0557a-d1cb-4aa6-b915-09902745f9eb)
+![Screenshot 1](https://github.com/Shally593/pgpbl-responsi/assets/142763000/de197023-b1b7-40eb-af51-955cfccd3984)
+
 
 
