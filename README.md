@@ -36,6 +36,6 @@ Data diakses melalui Inageoportal : https://tanahair.indonesia.go.id/
 ![Screenshot 31](https://github.com/Shally593/pgpbl-responsi/assets/142763000/32e384f0-1ce8-44d5-8bf3-9f969513bc02)
 ![Screenshot 32](https://github.com/Shally593/pgpbl-responsi/assets/142763000/bec5295f-c70a-473a-baf1-0daab4cd999c)
 ![Screenshot 4](https://github.com/Shally593/pgpbl-responsi/assets/142763000/572ab273-c5b4-46ed-9c26-a711f1d7208f)
-![Picture6](https://github.com/Shally593/pgpbl-responsi/assets/142763000/9b3ced09-2286-47e6-be06-b663f915a077)
+
 
 
