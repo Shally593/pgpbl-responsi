@@ -32,10 +32,15 @@ Data diakses melalui Inageoportal : https://tanahair.indonesia.go.id/
 
 ## Aplikasi 
 ![Screenshot 1](https://github.com/Shally593/pgpbl-responsi/assets/142763000/de197023-b1b7-40eb-af51-955cfccd3984)
+
 ![Screenshot 2](https://github.com/Shally593/pgpbl-responsi/assets/142763000/5fdd26b3-564b-4f7c-98c6-4bcf61fbb70e)
+
 ![Screenshot 31](https://github.com/Shally593/pgpbl-responsi/assets/142763000/32e384f0-1ce8-44d5-8bf3-9f969513bc02)
+
 ![Screenshot 32](https://github.com/Shally593/pgpbl-responsi/assets/142763000/bec5295f-c70a-473a-baf1-0daab4cd999c)
+
 ![Screenshot 4](https://github.com/Shally593/pgpbl-responsi/assets/142763000/572ab273-c5b4-46ed-9c26-a711f1d7208f)
+
 ![Screenshot 5](https://github.com/Shally593/pgpbl-responsi/assets/142763000/2b50c33c-6741-4e49-a674-e6e884b6b0bf)
 
 
